@@ -7,7 +7,8 @@ class Student:
         self.root=root
         self.root.title("Student Management System")
         self.root.geometry("13500x700+0+0")
-        title=Label(self.root,text="Student Management System",bd=8,relief=GROOVE,font=("Verdana 10 bold",40,"bold"),bg="yellow",fg="blue")
+        self.root.configure(bg="dark blue")
+        title=Label(self.root,text="Student Management System",bd=8,relief=GROOVE,font=("Verdana 10 bold",40,"bold"),bg="grey",fg="dark blue")
         title.pack(side=TOP,fill=X)
 
 
@@ -89,10 +90,10 @@ class Student:
         btn_Frame=Frame(Manage_Frame,bd=4,relief=GROOVE,bg="crimson")
         btn_Frame.place(x=10,y=500,width=430)
 
-        Addbtn=Button(btn_Frame,text="Add",width=10,command=self.add_students).grid(row=0,column=0,padx=10,pady=10)
-        Updatebtn=Button(btn_Frame,text="Update",width=10,command=self.update_data).grid(row=0,column=1,padx=10,pady=10)
-        Deletebtn=Button(btn_Frame,text="Delete",width=10,command=self.delete_data).grid(row=0,column=2,padx=10,pady=10)
-        Clearbtn=Button(btn_Frame,text="Clear",width=10,command=self.clear).grid(row=0,column=3,padx=10,pady=10)
+        Addbtn=Button(btn_Frame,text="Add",bg="grey",fg="white",width=8,height=2,font=("Verdana 10 bold"),command=self.add_students).grid(row=0,column=0,padx=10,pady=10)
+        Updatebtn=Button(btn_Frame,text="Update",bg="grey",fg="white",width=8,padx=2,height=2,font=("Verdana 10 bold"),command=self.update_data).grid(row=0,column=1,padx=10,pady=10)
+        Deletebtn=Button(btn_Frame,text="Delete",bg="grey",fg="white",width=8,padx=2,height=2,font=("Verdana 10 bold"),command=self.delete_data).grid(row=0,column=2,padx=10,pady=10)
+        Clearbtn=Button(btn_Frame,text="Clear",bg="grey",fg="white",width=8,padx=2,height=2,font=("Verdana 10 bold"),command=self.clear).grid(row=0,column=3,padx=10,pady=10)
 
         
         #============Detailed Frame============
@@ -105,14 +106,14 @@ class Student:
 
 
         Combo_Search=ttk.Combobox(Detailed_Frame,textvariable=self.search_by,font=("Verdana 10 bold",10,"bold"),state="readonly")
-        Combo_Search['values']=('Roll_no','Name','Contact No')
+        Combo_Search['values']=('Roll_no','Name','Contact')
         Combo_Search.grid(row=0,column=1,pady=10,padx=20)
 
         txt_Search=Entry(Detailed_Frame,textvariable=self.search_txt,width=20,font=("Verdana 10 bold",10,"bold"),bd=5,relief=GROOVE)
         txt_Search.grid(row=0,column=2,pady=10,padx=20,sticky="w")
 
         Search_btn=Button(Detailed_Frame,text="Search",width=10,pady=5,command=self.search_data).grid(row=0,column=3,padx=10,pady=10)
-        Showall_btn=Button(Detailed_Frame,text="Show all",width=10,pady=5,command=self.fetch_data).grid(row=0,column=4,padx=10,pady=10)
+        Showall_btn=Button(Detailed_Frame,text="Show All",width=10,pady=5,command=self.fetch_data).grid(row=0,column=4,padx=10,pady=10)
 
 
         #=========TABLE FRAME===============
